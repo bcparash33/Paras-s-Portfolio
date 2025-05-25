@@ -29,6 +29,8 @@
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
@@ -335,6 +337,15 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-40 {
+    max-height: calc(var(--spacing) * 40);
+  }
+  .max-h-50 {
+    max-height: calc(var(--spacing) * 50);
+  }
+  .max-h-full {
+    max-height: 100%;
+  }
   .min-h-full {
     min-height: 100%;
   }
@@ -365,6 +376,9 @@
   .w-\[80vw\] {
     width: 80vw;
   }
+  .w-\[90vw\] {
+    width: 90vw;
+  }
   .w-full {
     width: 100%;
   }
@@ -386,11 +400,17 @@
   .max-w-120 {
     max-width: calc(var(--spacing) * 120);
   }
+  .max-w-130 {
+    max-width: calc(var(--spacing) * 130);
+  }
   .max-w-150 {
     max-width: calc(var(--spacing) * 150);
   }
   .max-w-170 {
     max-width: calc(var(--spacing) * 170);
+  }
+  .max-w-full {
+    max-width: 100%;
   }
   .flex-shrink {
     flex-shrink: 1;
@@ -403,6 +423,9 @@
   }
   .resize {
     resize: both;
+  }
+  .flex-col {
+    flex-direction: column;
   }
   .items-center {
     align-items: center;
@@ -424,6 +447,9 @@
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
   }
   .gap-30 {
     gap: calc(var(--spacing) * 30);
@@ -595,11 +621,17 @@
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
   .p-80 {
     padding: calc(var(--spacing) * 80);
   }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
+  }
+  .pt-15 {
+    padding-top: calc(var(--spacing) * 15);
   }
   .pt-30 {
     padding-top: calc(var(--spacing) * 30);
@@ -636,6 +668,10 @@
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -744,6 +780,36 @@
     --tw-duration: 1000ms;
     transition-duration: 1000ms;
   }
+  .group-hover\:bg-white\/2 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 2%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 2%, transparent);
+        }
+      }
+    }
+  }
+  .group-hover\:bg-white\/4 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 4%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 4%, transparent);
+        }
+      }
+    }
+  }
+  .group-hover\:bg-white\/5 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 5%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+        }
+      }
+    }
+  }
   .group-hover\:bg-white\/10 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -771,6 +837,11 @@
       }
     }
   }
+  .sm\:sticky {
+    @media (width >= 40rem) {
+      position: sticky;
+    }
+  }
   .sm\:block {
     @media (width >= 40rem) {
       display: block;
@@ -779,6 +850,63 @@
   .sm\:flex {
     @media (width >= 40rem) {
       display: flex;
+    }
+  }
+  .sm\:grid {
+    @media (width >= 40rem) {
+      display: grid;
+    }
+  }
+  .sm\:size-30 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 30);
+      height: calc(var(--spacing) * 30);
+    }
+  }
+  .sm\:h-screen {
+    @media (width >= 40rem) {
+      height: 100vh;
+    }
+  }
+  .sm\:max-h-50 {
+    @media (width >= 40rem) {
+      max-height: calc(var(--spacing) * 50);
+    }
+  }
+  .sm\:w-\[50\%\] {
+    @media (width >= 40rem) {
+      width: 50%;
+    }
+  }
+  .sm\:w-\[70vw\] {
+    @media (width >= 40rem) {
+      width: 70vw;
+    }
+  }
+  .sm\:max-w-170 {
+    @media (width >= 40rem) {
+      max-width: calc(var(--spacing) * 170);
+    }
+  }
+  .sm\:justify-between {
+    @media (width >= 40rem) {
+      justify-content: space-between;
+    }
+  }
+  .sm\:pt-30 {
+    @media (width >= 40rem) {
+      padding-top: calc(var(--spacing) * 30);
+    }
+  }
+  .sm\:text-4xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .md\:max-h-full {
+    @media (width >= 48rem) {
+      max-height: 100%;
     }
   }
 }
